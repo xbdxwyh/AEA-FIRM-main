@@ -42,18 +42,11 @@ if __name__ == '__main__':
     
     device = "cuda"
     cur_time = time.strftime("%Y%m%d_%H%M%S", time.localtime())
-    args.proj_token_num = 24
     args.output_dir = op.join(args.output_dir, args.dataset_name, f'{cur_time}_{name}')
-    args.nmb_prototypes = 1000 
-    args.prot_temp = 0.1
-    args.prot_eps = 0.5
-    args.sink_iter = 3
     args.crops_for_assign = [0,1,2]
     args.cont_queue_size=args.batch_size*3
     args.queue_size=0
     args.queue_epoch=3
-    args.decoder_depth=1
-    args.atr_length = 14
     # args.
     logger = setup_logger('IRRA', save_dir=args.output_dir, if_train=args.training, distributed_rank=get_rank())
     logger.info("Using {} GPUs".format(num_gpus))

@@ -1,0 +1,80 @@
+2025-02-17 17:34:27,364 IRRA INFO: Using 1 GPUs
+2025-02-17 17:34:27,365 IRRA INFO: Namespace(local_rank=0
+ name='AEA-FIRM'
+ output_dir='logs\\AGDataAttr\\20250217_173427_AEA-FIRM'
+ log_period=100
+ eval_period=1
+ val_dataset='test'
+ resume=False
+ resume_ckpt_file=''
+ pretrain_choice='ViT-B/16'
+ temperature=0.02
+ img_aug=True
+ cmt_depth=4
+ masked_token_rate=0.8
+ masked_token_unchanged_rate=0.1
+ lr_factor=5.0
+ MLM=False
+ loss_names='supkl'
+ mlm_loss_weight=1.0
+ id_loss_weight=1.0
+ match_loss_weight=1.0
+ img_size=(384
+ 128)
+ stride_size=16
+ text_length=77
+ vocab_size=49408
+ optimizer='Adam'
+ lr=1e-05
+ bias_lr_factor=2.0
+ momentum=0.9
+ weight_decay=4e-05
+ weight_decay_bias=0.0
+ alpha=0.9
+ beta=0.999
+ num_epoch=60
+ milestones=(20
+ 50)
+ gamma=0.1
+ warmup_factor=0.1
+ warmup_epochs=5
+ warmup_method='linear'
+ lrscheduler='cosine'
+ target_lr=0
+ power=0.9
+ dataset_name='AGDataAttr'
+ sampler='random'
+ num_instance=4
+ root_dir='F:\\Datasets'
+ batch_size=16
+ test_batch_size=512
+ num_workers=8
+ training=True
+ distributed=False
+ crops_for_assign=[0
+ 1
+ 2]
+ cont_queue_size=48
+ queue_size=0
+ queue_epoch=3)
+2025-02-17 17:34:44,041 IRRA.dataset INFO: => AGTBPR Images and Captions are loaded
+2025-02-17 17:34:44,042 IRRA.dataset INFO: AGDataAttr Dataset statistics:
+2025-02-17 17:34:44,044 IRRA.dataset INFO: 
++--------+------+--------+----------+
+| subset | ids  | images | captions |
++--------+------+--------+----------+
+| train  | 1180 | 31340  |  31340   |
+|  test  | 529  |  3200  |   3200   |
+|  val   | 529  |  9255  |   9255   |
++--------+------+--------+----------+
+2025-02-17 17:34:44,146 IRRA.dataset INFO: using random sampler
+2025-02-17 17:40:15,573 IRRA.dataset INFO: => AGTBPR Images and Captions are loaded
+2025-02-17 17:40:15,574 IRRA.dataset INFO: AGDataAttr Dataset statistics:
+2025-02-17 17:40:15,575 IRRA.dataset INFO: 
++--------+------+--------+----------+
+| subset | ids  | images | captions |
++--------+------+--------+----------+
+| train  | 1180 | 31340  |  31340   |
+|  test  | 529  |  3200  |   3200   |
+|  val   | 529  |  9255  |   9255   |
++--------+------+--------+----------+

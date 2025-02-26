@@ -72,14 +72,7 @@ class Evaluator():
             img = img.to(device)
             img_pair = img_pair.to(device) if img_pair is not None else None
             with torch.no_grad():
-                img_feat = model.encode_pair_image(img,img_pair) if img_pair is not None else model.encode_image(img)
-                if "token" in model.current_task:
-                    image_feats_conv = model.base_model.visual.conv_embedding(img.half()) 
-                    x_dec = model.forward_token_proj(image_feats_conv)
-                    image_feats = model.base_model.visual.forward_body(x_dec)
-                    token_feat = (image_feats @ model.base_model.visual.proj)[:, 0, :].float()
-            if "token" in model.current_task:
-                token_feats.append(token_feat)
+                img_feat = model.encode_image(img)
             gids.append(pid.view(-1)) # flatten 
             gfeats.append(img_feat)
         gids = torch.cat(gids, 0)

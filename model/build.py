@@ -38,7 +38,6 @@ class IRRA(nn.Module):
         super().__init__()
         self.args = args
         self.num_classes = num_classes
-        self.proj_token_num = args.proj_token_num
         self._set_task()
 
         #self.base_model, base_cfg, self.pe_enlarge = build_CLIP_from_openai_pretrained(args.pretrain_choice, args.img_size, args.stride_size)

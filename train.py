@@ -55,13 +55,11 @@ if __name__ == '__main__':
     # get image-text pair datasets dataloader
     train_loader, val_img_loader, val_txt_loader, num_classes = build_dataloader(args)
     #if args.dataset_name != "AGTBPRSG":
-    height = args.proj_token_num // (args.img_size[1]//args.stride_size)
-    args.enl_img_size = (args.img_size[0] + height * args.stride_size, args.img_size[1])
+    # height = args.proj_token_num // (args.img_size[1]//args.stride_size)
+    # args.enl_img_size = (args.img_size[0] + height * args.stride_size, args.img_size[1])
     model = build_model(args, num_classes)
     logger.info(model.proj_dec_cfg)
     logger.info('Total params: %2.fM' % (sum(p.numel() for p in model.parameters()) / 1000000.0))
-    if model.linear_proj is not None:
-        logger.info(model.linear_proj)
     
     model.set_sent_list(train_loader.dataset.tokenizer,text_length=train_loader.dataset.text_length, truncate=train_loader.dataset.truncate)
     model.to(device)

@@ -133,9 +133,15 @@ if __name__ == '__main__':
     set_seed(1+get_rank())
     parser = argparse.ArgumentParser(description="IRRA Test")
     parser.add_argument("--config_file", default='logs/CUHK-PEDES/iira/configs.yaml')
+    parser.add_argument("--root_dir", default=None)
     args = parser.parse_args()
+    root_dir = None
+    if args.root_dir is not None:
+        root_dir = args.root_dir
     output_dir = args.config_file[:-len("/configs.yaml")]
     args = load_train_configs(args.config_file)
+    if root_dir is not None:
+        args.root_dir = root_dir
     args.output_dir = output_dir
     # args.dataset_name = "AGData"
     args.training = False

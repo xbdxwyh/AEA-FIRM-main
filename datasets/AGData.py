@@ -19,14 +19,13 @@ class AGData(object):
     logger = logging.getLogger("IRRA.dataset")
 
     def __init__(self, root='./data',
-                 verbose=True, type="dual",text="half", **kwargs):
+                 verbose=True, type="dual", **kwargs):
         super(AGData, self).__init__()
         # agtbpr_name = 'AG-ReID.v1'
         #g2aps_name = 'UAV-GA-TBPR'
-        self.text = text
 
-        agtbpr_data = AG_ReID(root,verbose=False,text=self.text)
-        g2aps_data = G2APS(root,verbose=False,text=self.text)
+        agtbpr_data = AG_ReID(root,verbose=False)
+        g2aps_data = G2APS(root,verbose=False)
 
         self.type=type
 
@@ -90,12 +89,11 @@ class AGSGData(object):
     logger = logging.getLogger("IRRA.dataset")
 
     def __init__(self, root='./data',
-                 verbose=True, type="single",text="half",img="a", **kwargs):
+                 verbose=True, type="single",img="a", **kwargs):
         super(AGSGData, self).__init__()
-        self.text = text
 
-        agtbpr_data = AG_ReID(root,verbose=False,text=self.text)
-        g2aps_data = G2APS(root,verbose=False,text=self.text)
+        agtbpr_data = AG_ReID(root,verbose=False)
+        g2aps_data = G2APS(root,verbose=False)
         # agtbpr_name = 'AG-ReID.v1'
         #g2aps_name = 'UAV-GA-TBPR'
 
@@ -173,21 +171,20 @@ class AGDataAttr(object):
     logger = logging.getLogger("IRRA.dataset")
 
     def __init__(self, root='./data',
-                 verbose=True, type="dualAttr",text="half", **kwargs):
+                 verbose=True, type="dualAttr", **kwargs):
         super(AGDataAttr, self).__init__()
         # agtbpr_name = 'AG-ReID.v1'
         #g2aps_name = 'UAV-GA-TBPR'
-        self.text = text
-        with open(osp.join(root,"atr_dict_final.json"))  as f:
-            self.atr_dict_all = json.load(f)
+        # with open(osp.join(root,"atr_dict_final.json"))  as f:
+        #     self.atr_dict_all = json.load(f)
 
         with open(osp.join(root,"attrs.json"),"r") as f:
             attr_data = json.load(f)
         
         data_key = {list(item.keys())[0]:list(item.values())[0] for item in attr_data}
 
-        agtbpr_data = AG_ReID(root,verbose=False,text=self.text)
-        g2aps_data = G2APS(root,verbose=False,text=self.text)
+        agtbpr_data = AG_ReID(root,verbose=False)
+        g2aps_data = G2APS(root,verbose=False)
 
         self.type=type
 

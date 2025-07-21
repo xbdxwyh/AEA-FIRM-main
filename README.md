@@ -38,7 +38,7 @@ we use single RTX3090 24G GPU for training and evaluation.
 
 1. For Vanilla CLIP checkpoint.
 ```bash
-CUDA_VISIBLE_DEVICES=7 python train.py --name irra --batch_size 64 --MLM --loss_names 'supkl+queue+match2' --dataset_name 'AGDataAttr' --root_dir 'path_to_dataset\TBAGPR' --num_epoch 60
+CUDA_VISIBLE_DEVICES=7 python train.py --name irra --batch_size 64 --MLM --loss_names 'supkl+queue+match2+dot' --dataset_name 'AGDataAttr' --root_dir 'path_to_dataset\TBAGPR' --num_epoch 60
 ```
 
 2. You can also use other pre-trained checkpoints (for example, [W. Tan, et. al., “Harnessing the power of mllms for transferable text-to-image person reid,” in CVPR, June 2024, pp. 17 127–17 137](https://github.com/WentaoTan/MLLM4Text-ReID)).

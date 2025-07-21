@@ -47,6 +47,13 @@ class IRRA(nn.Module):
         self.logit_scale = torch.ones([]) * (1 / args.temperature) 
         self.proj_dec_cfg = None
         
+        if "match" in args.loss_names:
+            if "dot" in self.current_task:
+                self.atr_matching_head = nn.Linear(self.embed_dim,2)
+            elif "cat" in self.current_task:
+                self.atr_matching_head = nn.Linear(self.embed_dim*2,2)
+            pass
+    
         if "queue" in args.loss_names:
             self.queue_t = torch.zeros(
                 args.cont_queue_size,

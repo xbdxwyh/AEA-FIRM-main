@@ -46,7 +46,7 @@ CUDA_VISIBLE_DEVICES=7 python train.py --name irra --batch_size 64 --MLM --loss_
 If you want to do this, please download the checkpoint to `path_to_model\checkpoint.pth`.
 ```bash
 CUDA_VISIBLE_DEVICES=7 python train.py --name irra --batch_size 64 --MLM --loss_names 'supkl+qu
-eue+match2' --dataset_name 'AGDataAttr' --root_dir 'path_to_dataset\TBAGPR' --num_epoch 60 --finetune 'path_to_model\checkpoint.pth'
+eue+match2+dot' --dataset_name 'AGDataAttr' --root_dir 'path_to_dataset\TBAGPR' --num_epoch 60 --finetune 'path_to_model\checkpoint.pth'
 ```
 
 3. For evaluation
